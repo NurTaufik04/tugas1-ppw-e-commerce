@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Milo & Mixy - E-commerce</title>
+  <style>
+    /* Reset */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: Arial, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: #f9f9f9;
+    }
+
+    header {
+      background: #4CAF50;
+      color: white;
+      padding: 15px;
+      text-align: center;
+    }
+    header h1 { margin-bottom: 10px; }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    nav a:hover { text-decoration: underline; }
+
+    .container {
+      flex: 1;
+      padding: 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    /* Motto */
+    .motto {
+      background: #ffeb3b;
+      padding: 10px;
+      text-align: center;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+
+    /* Products */
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 20px;
+    }
+    .product {
+      background: white;
+      padding: 15px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .product img {
+      width: 100%;
+      height: 150px;
+      object-fit: contain;
+      margin-bottom: 10px;
+    }
+    .product h3 { margin: 10px 0; }
+
+    /* Profile */
+    .profile-card {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .profile-card img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      margin-bottom: 15px;
+    }
+
+    /* Cart */
+    .cart-list {
+      list-style: none;
+    }
+    .cart-list li {
+      background: white;
+      padding: 15px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    footer {
+      background: #333;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: auto;
+    }
+
+    /* Hide sections */
+    .page { display: none; }
+    .page.active { display: block; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Milo & Mixy</h1>
+    <nav>
+      <a onclick="showPage('catalog')">Catalog</a>
+      <a onclick="showPage('profile')">Profile</a>
+      <a onclick="showPage('cart')">Cart</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <!-- Catalog -->
+    <section id="catalog" class="page active">
+      <div class="motto">✨ "Belanja Mudah, Harga Bersahabat, Kualitas Terjamin!" ✨</div>
+      <h2>Catalog Produk</h2>
+      <div class="products">
+        <div class="product">
+          <img src="images/laptop.png" alt="Laptop">
+          <h3>Laptop Gaming</h3>
+          <p>$1200</p>
+        </div>
+        <div class="product">
+          <img src="images/samsung.webp" alt="Smartphone">
+          <h3>Smartphone Pro</h3>
+          <p>$850</p>
+        </div>
+        <div class="product">
+          <img src="images/headphone.png" alt="Headphones">
+          <h3>Headphones Wireless</h3>
+          <p>$250</p>
+        </div>
+        <div class="product">
+          <img src="images/camera.jpg" alt="Camera">
+          <h3>DSLR Camera</h3>
+          <p>$1100</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Profile -->
+    <section id="profile" class="page">
+      <div class="profile-card">
+        <img src="images/profile.jpg" alt="Profile">
+        <h2>Nur Taufik</h2>
+        <p>Founder & Owner Milo & Mixy</p>
+        <p>Email: nur.taufik@example.com</p>
+      </div>
+    </section>
+
+    <!-- Cart -->
+    <section id="cart" class="page">
+      <h2>Keranjang Belanja</h2>
+      <ul class="cart-list">
+        <li>
+          <span>Laptop Gaming</span>
+          <span>$1200</span>
+        </li>
+        <li>
+          <span>Headphones Wireless</span>
+          <span>$250</span>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Milo & Mixy. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function showPage(pageId) {
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      document.getElementById(pageId).classList.add('active');
+    }
+  </script>
+
+</body>
+</html>
